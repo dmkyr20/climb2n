@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: climb2n
+
+climb2n:
+  security:
+    jwt:
+      signWith: wwwsaa

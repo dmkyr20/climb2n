@@ -4,11 +4,11 @@ import lombok.Getter;
 import org.springframework.context.ApplicationEvent;
 
 @Getter
-public class TrainingSessionCompleted extends ApplicationEvent {
+public class TrainingSessionCompletedEvent extends ApplicationEvent {
 
     private final TrainingSession session;
 
-    TrainingSessionCompleted(Object source, TrainingSession session) {
+    TrainingSessionCompletedEvent(Object source, TrainingSession session) {
         super(source);
         this.session = session;
     }
