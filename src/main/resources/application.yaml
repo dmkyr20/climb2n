@@ -5,4 +5,11 @@ spring:
 climb2n:
   security:
     jwt:
-      signWith: wwwsaa
+      enableSigning: true
+      timeToLive: 3h
+    users:
+      - id: 56298b65-6267-4365-b868-98c348a679b2
+        username: test
+        password: test
+        keys:
+          com.key: secret-key
