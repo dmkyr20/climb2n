@@ -11,5 +11,4 @@ public class Climb2nApplication {
     public static void main(String[] args) {
         SpringApplication.run(Climb2nApplication.class, args);
     }
-
 }

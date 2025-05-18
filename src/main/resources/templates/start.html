@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Page</title>
+</head>
+<body>
+<h1>Welcome, <span th:text="${#authentication.name}">User</span>!</h1>
+
+<form th:action="@{/main}" method="get">
+    <label for="sessionName">Name:</label>
+    <input type="text" id="sessionName" name="sessionName" required />
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

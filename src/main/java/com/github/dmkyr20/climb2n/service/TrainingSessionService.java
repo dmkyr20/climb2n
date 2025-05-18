@@ -16,14 +16,14 @@ public class TrainingSessionService {
         this.eventPublisher = eventPublisher;
     }
 
-    TrainingSession start(String name) {
+    public TrainingSession start(String name) {
         return TrainingSession.initBuilder()
                 .startTime(Instant.now())
                 .name(name)
                 .build();
     }
 
-    void stop(TrainingSession session) {
+    public void stop(TrainingSession session) {
        eventPublisher.publishEvent(session.withEndTime(Instant.now()));
     }
 }

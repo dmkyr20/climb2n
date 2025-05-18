@@ -3,8 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Climb2n</title>
+    <script th:src="@{/main-scripts.js}"></script>
 </head>
 <body>
-<h1>Logged In!</h1>
+    <h1>Session: <span th:text="${data.name}">Name</span></h1>
+
+    <div id="buttons">
+        <button id="cl2n-add-1" onclick="addRow(this)">Level 1</button>
+        <button id="cl2n-add-2" onclick="addRow(this)">Level 2</button>
+        <button id="cl2n-add-3" onclick="addRow(this)">Level 3</button>
+        <button id="cl2n-add-4" onclick="addRow(this)">Level 4</button>
+        <button id="cl2n-add-5" onclick="addRow(this)">Level 5</button>
+        <button id="cl2n-add-6" onclick="addRow(this)">Level 6</button>
+        <button id="cl2n-add-7" onclick="addRow(this)">Level 7</button>
+    </div>
+
+    <div id="cl2n-container">
+    </div>
+
+    <button>Finish Training</button>
 </body>
+<script th:inline="javascript">
+    window.initData = /*[[${data}]]*/ {};
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (window.initData) {
+            init(window.initData);
+        } else {
+            console.error("No training data available");
+        }
+    });
+</script>
 </html>
