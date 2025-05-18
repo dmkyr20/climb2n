@@ -1,8 +1,6 @@
 package com.github.dmkyr20.climb2n.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -44,7 +42,10 @@ public class UserService implements UserDetailsService {
         return User.builder()
                 .id(properties.uuid())
                 .username(properties.username())
-                .password(passwordEncoder.encode(properties.password()))
+                .password(
+                        properties.passwordEncrypted()
+                                ? properties.password()
+                                : passwordEncoder.encode(properties.password()))
                 .authorities(List.of())
                 .build();
     }

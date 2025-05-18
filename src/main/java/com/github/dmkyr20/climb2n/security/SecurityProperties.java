@@ -5,8 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 @ConfigurationProperties("climb2n.security")
-record SecurityProperties(
-        JwtProperties jwt,
-        List<UserProperties> users) {
+record SecurityProperties(List<UserProperties> users) {
 
 }

@@ -4,9 +4,6 @@ spring:
 
 climb2n:
   security:
-    jwt:
-      enableSigning: true
-      timeToLive: 3h
     users:
       - id: 56298b65-6267-4365-b868-98c348a679b2
         username: test

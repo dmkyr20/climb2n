@@ -7,5 +7,6 @@ public record UserProperties(
         UUID uuid,
         String username,
         String password,
+        boolean passwordEncrypted,
         Map<String, String> keys) {
 }
