@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Climb2n</title>
     <script th:src="@{/main-scripts.js}"></script>
+    <meta name="csrf-token" th:content="${_csrf.token}"/>
+    <meta name="csrf-header" th:content="${_csrf.headerName}"/>
 </head>
 <body>
     <h1>Session: <span th:text="${data.name}">Name</span></h1>
@@ -21,7 +23,7 @@
     <div id="cl2n-container">
     </div>
 
-    <button>Finish Training</button>
+    <button onclick="submitTraining()">Finish Training</button>
 </body>
 <script th:inline="javascript">
     window.initData = /*[[${data}]]*/ {};
