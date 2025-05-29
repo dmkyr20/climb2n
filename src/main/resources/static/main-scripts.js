@@ -55,13 +55,11 @@ function collectLevelCounts() {
     for (const record of records) {
         const levelText = record.querySelector("p")?.textContent?.trim();
         const level = parseInt(levelText, 10);
-        const index = level - 1;
+        const key = __keys[level - 1];
 
         console.log("temp: " + level);
-        console.log("index: " + index);
-        console.log("key: " + __keys[index]);
 
-        __records[__keys[index]] = (__records[index] || 0) + 1;
+        __records[key] = (__records[key] || 0) + 1;
     }
 }
 
