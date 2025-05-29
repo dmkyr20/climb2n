@@ -1,11 +1,14 @@
 package com.github.dmkyr20.climb2n.web;
 
+import com.github.dmkyr20.climb2n.security.User;
 import com.github.dmkyr20.climb2n.security.UserAuthenticator;
 import com.github.dmkyr20.climb2n.service.TrainingSession;
 import com.github.dmkyr20.climb2n.service.TrainingSessionService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,9 +47,12 @@ class ApplicationController {
     }
 
     @PostMapping("/stop")
-    String finish(@RequestBody TrainingSession session, Model model) {
+    String finish(
+            @RequestBody TrainingSession session,
+            @AuthenticationPrincipal User user,
+            Model model) {
         try {
-            service.stop(session);
+            service.stop(session, user);
             return "success";
         } catch (Exception e) {
             model.addAttribute("data", session);

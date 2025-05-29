@@ -1,5 +1,6 @@
 package com.github.dmkyr20.climb2n.service;
 
+import com.github.dmkyr20.climb2n.security.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -23,7 +24,8 @@ public class TrainingSessionService {
                 .build();
     }
 
-    public void stop(TrainingSession session) {
-       eventPublisher.publishEvent(session.withEndTime(Instant.now()));
+    public void stop(TrainingSession session, User user) {
+        eventPublisher.publishEvent(
+                new TrainingSessionCompletedEvent(this, user, session.withEndTime(Instant.now())));
     }
 }

@@ -46,6 +46,7 @@ public class UserService implements UserDetailsService {
                         properties.passwordEncrypted()
                                 ? properties.password()
                                 : passwordEncoder.encode(properties.password()))
+                .keys(properties.keys())
                 .authorities(List.of())
                 .build();
     }

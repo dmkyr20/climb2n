@@ -30,10 +30,7 @@ public record TrainingSession(
     }
 
     @JsonIgnore
-    Duration duration() {
-        if (startTime == null || endTime == null) {
-            return null;
-        }
+    public Duration duration() {
         return Duration.between(startTime, endTime);
     }
 }

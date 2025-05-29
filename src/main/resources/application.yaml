@@ -1,12 +1,34 @@
 spring:
+  config:
+    import:
+      - classpath:users.yaml
   application:
     name: climb2n
 
 climb2n:
+  integrations:
+    notion:
+      client:
+        baseUrl: https://api.notion.com/v1
+        version: 2022-06-28
+        read-timeout: 10s
+        connection-timeout: 10s
   security:
     users:
       - id: 56298b65-6267-4365-b868-98c348a679b2
         username: test
         password: test
         keys:
-          com.key: secret-key
+          zone-id: Europe/Berlin
+          notion.api-key: <notion-key>
+          notion.database-id: <database-id>
+          notion.key.name: Name
+          notion.key.date: Date
+          notion.key.duration: Duration
+          notion.key.level1: 1
+          notion.key.level2: 2
+          notion.key.level3: 3
+          notion.key.level4: 4
+          notion.key.level5: 5
+          notion.key.level6: 6
+          notion.key.level7: 7

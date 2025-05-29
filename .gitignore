@@ -35,3 +35,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### Climb2n ###
+/src/main/resources/users.yaml
+/http/http-client.env.json
